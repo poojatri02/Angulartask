@@ -1,0 +1,34 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Pooja Dixit",
+      "email": "poojadixit85@gmail.com",
+      "phone": "999999999"
+    },
+    {
+      "name": "Ashwin",
+      "email": "ashwinkumar@gmail.com",
+      "phone": "7892394823",
+      "id": 2
+    },
+    {
+      "name": "Sumit",
+      "email": "sumittiwari@gmail.com",
+      "phone": "777777777",
+      "id": 4
+    },
+    {
+      "name": "Neha",
+      "email": "neha@g.com",
+      "phone": "68775674574",
+      "id": 5
+    },
+    {
+      "name": "SupritaN",
+      "email": "supritan@gmail.com",
+      "phone": "76766778978",
+      "id": 6
+    }
+  ]
+}

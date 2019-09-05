@@ -1,0 +1,102 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <button onclick="createfn()" id="createbtn">Create Contact</button>
+    </div>
+    <div class="col-md-8">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th> </th>
+                </tr>  
+                <tr>
+                  <td colspan="4" id="listnum">CONTACTS({{totalcontacts}})</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let x of contactarray">
+                    <td class="flexer"><div class="cimg">{{x.name.charAt(0)}}</div><div>{{x.name}}</div></td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.phone}}</td>
+                    <td> <a><i class="fas fa-star"></i></a>
+                     &nbsp; <a onclick="editfn()" (click)="editfun(x.id,x.name,x.email,x.phone)"><i class="fas fa-pencil-alt"></i></a>
+                    &nbsp;   <a (click)="deletefn(x.id)"><i class="far fa-trash-alt"></i></a>
+                    </td>  
+                </tr>
+            </tbody>
+               
+          </table>
+
+    </div>
+
+  </div>
+    
+      
+
+</div>
+
+<div id="maindiv">
+
+</div>
+
+
+<div id="savediv">
+  <h3>Create New Contact</h3> <hr>
+  <form [formGroup]="myform" (ngSubmit)="postdata()">
+   <div class="inputdiv"><input type="text"  id="name" onfocus="inputstyle('name')" onblur="outfocus('name')" formControlName="name" required><label>Name</label>
+    <div *ngIf="myform.controls.name.touched && myform.controls.name.hasError('required')" class="vd">
+        Please enter a name...
+      </div>
+  </div><br> 
+   <div class="inputdiv"><input type="text"  id="email" onfocus="inputstyle('email')" onblur="outfocus('email')" formControlName="email" required><label>Email</label>
+    <div *ngIf="myform.controls.email.touched && myform.controls.email.hasError('required')" class="vd">
+        Please enter an email...
+      </div>
+  </div><br>
+   <div class="inputdiv"><input type="text"  id="phone" onfocus="inputstyle('phone')" onblur="outfocus('phone')" formControlName="phone" required><label>Phone Number</label>
+  <div *ngIf="myform.controls.phone.touched && myform.controls.phone.hasError('required')" class="vd">
+    Please enter a phone number...
+  </div>
+  <div *ngIf="myform.controls.phone.touched && myform.controls.phone.hasError('pattern')" class="vd">
+      Phone number is not valid...
+    </div>
+  
+  </div><br>
+   <button type="submit" >Save</button> &nbsp; <button type="reset" onclick="closesavediv()">cancel</button>
+  </form>
+  
+</div>
+
+<div id="editdiv">
+    <h3>Update Contact</h3> <hr>
+    <form [formGroup]="myform" (ngSubmit)="editdata()">
+     <div class="inputdiv"><input type="text"  id="name" onfocus="inputstyle('name')" onblur="outfocus('name')" formControlName="name" required value="{{this.name}}"><label>Name</label>
+      <div *ngIf="myform.controls.name.touched && myform.controls.name.hasError('required')" class="vd">
+          Please enter a name...
+        </div>
+    </div><br> 
+     <div class="inputdiv"><input type="text"  id="email" onfocus="inputstyle('email')" onblur="outfocus('email')" formControlName="email" required value="{{this.email}}"><label>Email</label>
+      <div *ngIf="myform.controls.email.touched && myform.controls.email.hasError('required')" class="vd">
+          Please enter an email...
+        </div>
+    </div><br>
+     <div class="inputdiv"><input type="text"  id="phone" onfocus="inputstyle('phone')" onblur="outfocus('phone')" formControlName="phone" required value="{{this.phone}}"><label>Phone Number</label>
+    <div *ngIf="myform.controls.phone.touched && myform.controls.phone.hasError('required')" class="vd">
+      Please enter a phone number...
+    </div>
+    <div *ngIf="myform.controls.phone.touched && myform.controls.phone.hasError('pattern')" class="vd">
+        Phone number is not valid...
+      </div>
+    
+    </div><br>
+     <button type="submit" >Update</button> &nbsp; <button type="reset" onclick="closeeditdiv()">cancel</button>
+    </form>
+    
+  </div>
+
+
+  

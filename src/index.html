@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Project</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="../node_modules/bootstrap3/dist/css/bootstrap.css">
+  <script src="https://kit.fontawesome.com/b4e35bb586.js"></script>
+</head>
+<body>
+  <app-root></app-root>
+  <script>
+    function inputstyle(fldname){
+      document.getElementById(fldname).setAttribute("style","border-bottom:2px solid blue;");
+    }
+    function outfocus(fldname){
+      document.getElementById(fldname).setAttribute("style","");
+    }
+    function createfn(){
+      document.getElementById("savediv").setAttribute("style","display:block");
+      document.getElementById("maindiv").setAttribute("style","display:block;z-index:2");
+     
+    }
+    function editfn(){
+      document.getElementById("editdiv").setAttribute("style","display:block");
+      document.getElementById("maindiv").setAttribute("style","display:block;z-index:2");
+     
+    }
+  
+  
+   function closesavediv(){
+        document.getElementById("savediv").setAttribute("style","");
+        document.getElementById("maindiv").setAttribute("style","");
+  
+   }
+   function closeeditdiv(){
+        document.getElementById("editdiv").setAttribute("style","");
+        document.getElementById("maindiv").setAttribute("style","");
+  
+   }
+    
+    window.onclick=function(event){
+      if(event.target.id=="maindiv"){
+        document.getElementById("savediv").setAttribute("style","");
+        document.getElementById("editdiv").setAttribute("style","");
+        document.getElementById("maindiv").setAttribute("style","");
+      }
+    }
+  
+    </script>
+</body>
+</html>
